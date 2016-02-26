@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="DeveloperInterface" basedir="." default="compile">
-    <property name="dist.dir" location="./"/>
-    <property name="dist.name" value="developer-interface.jar"/>
+<project name="developer-interface" basedir="." default="compile">
+    <property name="dist.name" value="${ant.project.name}.jar"/>
+    <property name="dist.dir" location="${basedir}"/>
+    <property name="dist.loc" location="${dist.dir}/${dist.name}"/>
+
+    <property name="lib.dir" location="lib" />
+    <property name="src.dir" location="src" />
+    <property name="bin.dir" location="bin" />
+	
     <target name="compile" >
-        <delete dir="./bin"/>
-        <mkdir dir="./bin"/>
-        <javac srcdir="./src"
+        <delete dir="${bin.dir}"/>
+        <mkdir dir="${bin.dir}"/>
+        <javac srcdir="${src.dir}"
             source="1.6"
             target="1.6"
-            destdir="./bin"
+            destdir="${bin.dir}"
             encoding="utf8"
-            debug="on"
-            >
+            debug="on">
         </javac>
 
-        <jar destfile="${dist.dir}/${dist.name}">
-            <fileset dir="./bin">
+        <jar destfile="${dist.loc}">
+            <fileset dir="${bin.dir}">
                 <include name="**/**.class"/>
                 <exclude name="**/test/**.class"/>
             </fileset>
@@ -25,12 +30,9 @@
             </manifest>
         </jar>
 
-        <mkdir dir="./lib"/>
-        <copy file="${dist.dir}/${dist.name}" todir="./lib"/>
     </target>
     <target name="clean">
-        <delete dir="./bin"/>
-        <delete dir="./lib"/>
-        <delete file="${dist.dir}/${dist.name}"/>
+        <delete dir="${bin.dir}"/>
+        <delete file="${dist.loc}"/>
     </target>
 </project>

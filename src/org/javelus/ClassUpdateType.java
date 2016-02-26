@@ -62,8 +62,8 @@ public enum ClassUpdateType implements UpdateType {
             return larger;
         case DEL:
         case ADD:
-            if (this != NONE) {
-                throw new RuntimeException("sanity check failed!");
+            if (!isUnchanged()) {
+                throw new RuntimeException("sanity check failed! this is " + this + " that is " + larger);
             }
             return larger;
         default:
@@ -92,7 +92,7 @@ public enum ClassUpdateType implements UpdateType {
      * Now, all machine code changed are collected at runtime during a walk of SystemDictionary.
      */
     public boolean isChanged() {
-        return this.compareTo(BC) >= 0 && this.compareTo(CC) <= 0;
+        return this == BC || this == CC;
     }
 
     @Override

@@ -50,11 +50,11 @@ public enum MethodUpdateType implements UpdateType {
 
     @Override
     public boolean isChanged() {
-        return this == MC || this == BC;
+        return this == BC;
     }
 
     @Override
     public boolean isUnchanged() {
-        return this == NONE;
+        return this == MC || this == NONE;
     }
 }

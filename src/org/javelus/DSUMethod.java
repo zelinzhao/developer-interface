@@ -22,7 +22,7 @@
  */
 package org.javelus;
 
-public interface DSUMethod {
+public interface DSUMethod extends DSUMember {
     public MethodUpdateType getUpdateType();
     public String getName();
     public String getSignature();

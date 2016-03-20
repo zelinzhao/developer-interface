@@ -22,7 +22,7 @@
  */
 package org.javelus;
 
-public interface DSUField {
+public interface DSUField extends DSUMember {
     public FieldUpdateType getUpdateType();
     public String getName();
     public String getSignature();

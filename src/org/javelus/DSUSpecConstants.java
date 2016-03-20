@@ -17,10 +17,14 @@ public interface DSUSpecConstants {
     String METHOD_NAME_ATT = "name";
     String METHOD_DESC_ATT = "desc";
     String METHOD_UPDATE_TYPE_ATT = "ut";
+    String METHOD_STATIC_ATT = "static";
+
 
     String FIELD_NAME_ATT = "name";
     String FIELD_DESC_ATT = "desc";
     String FIELD_UPDATE_TYPE_ATT = "ut";
+    String FIELD_STATIC_ATT = "static";
+
     
     String CLASSLOADER_ID_ATT = "id";
     String CLASSLOADER_LID_ATT = "lid";

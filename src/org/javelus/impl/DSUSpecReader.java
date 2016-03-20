@@ -206,7 +206,7 @@ public class DSUSpecReader {
 
         String name = fieldElement.getAttribute(FIELD_NAME_ATT);
         String signature = fieldElement.getAttribute(FIELD_DESC_ATT);
-        boolean isStatic = Boolean.getBoolean(fieldElement.getAttribute(FIELD_STATIC_ATT));
+        boolean isStatic = Boolean.valueOf(fieldElement.getAttribute(FIELD_STATIC_ATT));
         FieldUpdateType updateType = FieldUpdateType.valueOf(fieldElement.getAttribute(FIELD_UPDATE_TYPE_ATT));
         return new DSUFieldImpl(updateType, name, signature, isStatic);
     }
@@ -289,7 +289,7 @@ public class DSUSpecReader {
 
         String name = methodElement.getAttribute(METHOD_NAME_ATT);
         String signature = methodElement.getAttribute(METHOD_DESC_ATT);
-        boolean isStatic = Boolean.getBoolean(methodElement.getAttribute(METHOD_STATIC_ATT));
+        boolean isStatic = Boolean.valueOf(methodElement.getAttribute(METHOD_STATIC_ATT));
 
         MethodUpdateType updateType = MethodUpdateType.valueOf(methodElement.getAttribute(METHOD_UPDATE_TYPE_ATT));
         return new DSUMethodImpl(updateType, name, signature, isStatic);
